@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 
 public class FileService {
-    private static File file;
     private static FileService instance;
 
     public static synchronized FileService getInstance(){
@@ -25,7 +24,7 @@ public class FileService {
     private FileService(){}
 
     public static void write(Account account, boolean b){
-        File file= new File("data.csv");
+        File file= new File("C:\\Users\\Виктория\\IdeaProjects\\homework4\\src\\com\\company//data.csv");
         FileWriter fw = null;
         String bl;
         try{
@@ -47,7 +46,7 @@ public class FileService {
         }
     }
     public List read() throws IOException{
-        BufferedReader reader = new BufferedReader(new FileReader("data.csv"));
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Виктория\\IdeaProjects\\homework4\\src\\com\\company//data.csv"));
 
         String line = null;
         Scanner scanner = null;
@@ -70,13 +69,13 @@ public class FileService {
                 else if (index == 4)
                     acc.setBlocked(Boolean.parseBoolean(data));
                 else
-                    System.out.println("Некорректные данные::" + data);
+                    System.out.println("Некорректные данные:" + data);
                 index++;
             }
             index = 0;
             accList.add(acc);
-        }
 
+        }
         //закрываем наш ридер
         reader.close();
         return accList;
